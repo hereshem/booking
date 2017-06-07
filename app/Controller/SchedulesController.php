@@ -36,6 +36,17 @@ class SchedulesController extends AppController {
 		if (!$this->Schedule->exists($id)) {
 			throw new NotFoundException(__('Invalid schedule'));
 		}
+		if(isset($this->request->query['seat'])){
+			$this->loadModel('Seat');
+			$seat = $this->Seat->find('first', array('conditions' => array('Seat.id' => $this->request->query['seat'])));
+			if($seat['Seat']['status'] == 1){
+				$seat['Seat']['status'] = 2;
+			}
+			else{
+				$seat['Seat']['status'] = 1;	
+			}
+			$this->Seat->save($seat);
+		}
 		$options = array('conditions' => array('Schedule.' . $this->Schedule->primaryKey => $id));
 		$this->set('schedule', $this->Schedule->find('first', $options));
 	}
@@ -49,6 +60,7 @@ class SchedulesController extends AppController {
 		if ($this->request->is('post')) {
 			$this->Schedule->create();
 			if ($this->Schedule->save($this->request->data)) {
+				$this->saveSeats($this->Schedule->id, $this->request->data['Schedule']['vehicle_id']);
 				$this->Flash->success(__('The schedule has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -72,6 +84,7 @@ class SchedulesController extends AppController {
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Schedule->save($this->request->data)) {
+				$this->saveSeats($id, $this->request->data['Schedule']['vehicle_id']);
 				$this->Flash->success(__('The schedule has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -83,6 +96,26 @@ class SchedulesController extends AppController {
 		}
 		$vehicles = $this->Schedule->Vehicle->find('list');
 		$this->set(compact('vehicles'));
+	}
+
+	private function saveSeats($schedule_id, $vehicle_id){
+		$vehicle = $this->Schedule->Vehicle->find('first',array('conditions'=>array('Vehicle.id'=>$vehicle_id)));
+		// print_r($vehicle['Templateseat']);
+		if(count($vehicle['Templateseat'])){
+			$seats = explode(',', $vehicle['Templateseat']['seatNames']);
+			$prices = explode(',', $vehicle['Templateseat']['seatPrices']);
+			$this->loadModel('Seat');
+			$this->Seat->deleteAll(array('Seat.schedule_id' => $schedule_id));
+			for ($i=0; $i < count($seats); $i++) { 
+				$data['Seat'][$i]['name']=$seats[$i];
+				$data['Seat'][$i]['price']=$prices[$i];
+				$data['Seat'][$i]['schedule_id']=$schedule_id;
+				$data['Seat'][$i]['status']=1;
+				$data['Seat'][$i]['published']=1;
+			}
+			$this->Seat->saveAll($data['Seat']);
+			// print_r($data['Seat']);
+		}
 	}
 
 /**

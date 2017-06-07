@@ -42,6 +42,19 @@
 			&nbsp;
 		</dd>
 	</dl>
+	<!-- Ticket booking view -->
+	<?php if (!empty($schedule['Seat'])): ?>
+	<div><br/><br/>
+		<h2>Seats Arrangement</h2>
+		<table><tr>
+		<?php $index=0; foreach ($schedule['Seat'] as $seat): ?>
+		<?php echo ($index%4==2?"</tr><tr>":"")."<td class=\"".($seat['status']==1?"open":($seat['status']==2?"selected":"booked"))."\"><a href=\"?seat=".$seat['id']."\">".$seat['name']."</a></td>"; ?>
+		<?php $index++; endforeach; ?></tr>
+		</table>
+		<div class="actions"><?php echo $this->Html->link(__('Book Now'), array('controller' => 'bookings', 'action' => 'add')); ?>
+		</div>
+	</div>
+	<?php endif; ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
