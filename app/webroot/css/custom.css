@@ -1,0 +1,9 @@
+td.open{
+background-color: darkseagreen;
+}
+td.selected{
+background-color: darkkhaki;
+}
+td.booked{
+	background-color: palevioletred;
+}
