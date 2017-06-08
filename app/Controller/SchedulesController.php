@@ -36,19 +36,33 @@ class SchedulesController extends AppController {
 		if (!$this->Schedule->exists($id)) {
 			throw new NotFoundException(__('Invalid schedule'));
 		}
+		$myseats = $this->Session->read('myseats');
+		if(empty($myseats)){
+			$myseats = ',';
+		}
 		if(isset($this->request->query['seat'])){
 			$this->loadModel('Seat');
-			$seat = $this->Seat->find('first', array('conditions' => array('Seat.id' => $this->request->query['seat'])));
+			$seat_id = $this->request->query['seat'];
+			$seat = $this->Seat->find('first', array('conditions' => array('Seat.id' => $seat_id)));
 			if($seat['Seat']['status'] == 1){
 				$seat['Seat']['status'] = 2;
+				$myseats .= $seat_id.',';
+				$this->Seat->save($seat);
+				$this->Session->write('myseats',$myseats);
+			}
+			else if($seat['Seat']['status'] == 2 && strpos($myseats,$seat_id.',') !== false){
+				$seat['Seat']['status'] = 1;	
+				$myseats = str_replace($seat_id.',', '', $myseats);
+				$this->Seat->save($seat);
+				$this->Session->write('myseats',$myseats);
 			}
 			else{
-				$seat['Seat']['status'] = 1;	
+				$this->Flash->error(__('Invalid seat selection'));
 			}
-			$this->Seat->save($seat);
 		}
 		$options = array('conditions' => array('Schedule.' . $this->Schedule->primaryKey => $id));
-		$this->set('schedule', $this->Schedule->find('first', $options));
+		$schedule = $this->Schedule->find('first', $options);
+		$this->set(compact('myseats', 'schedule'));
 	}
 
 /**

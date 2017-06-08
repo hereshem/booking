@@ -55,6 +55,24 @@ class BookingsController extends AppController {
 				$this->Flash->error(__('The booking could not be saved. Please, try again.'));
 			}
 		}
+		$myseats = $this->Session->read('myseats');
+		if(!empty($myseats) && $myseats != ','){
+			$myseats = substr($myseats, 1, -1);
+			$this->loadModel('Seat');
+			$order = "FIELD(Seat.id, ".$myseats.")";
+			$seats = $this->Seat->find('all',array('conditions'=>array('Seat.id'=>explode(',',$myseats)),'order'=>$order));
+			// $seats = $this->Seat->findById(explode(',',$myseats));
+			$total=0;$count=0;$seatNames='';
+			$schedule_id = $seats[count($seats)-1]['Seat']['schedule_id'];
+			foreach ($seats as $seat) {
+				if($schedule_id == $seat['Seat']['schedule_id']){
+					$seatNames .= ','.$seat['Seat']['name'];
+					$total += $seat['Seat']['price'];
+					$count++;
+				}
+			}
+			$this->request->data['Booking'] = array('schedule_id'=>$schedule_id,'seatNames'=>substr($seatNames,1),'seatCount'=>$count,'subTotal'=>$total,'totalAmount'=>$total);
+		}
 		$schedules = $this->Booking->Schedule->find('list');
 		$users = $this->Booking->User->find('list');
 		$this->set(compact('schedules', 'users'));

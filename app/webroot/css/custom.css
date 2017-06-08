@@ -2,6 +2,9 @@ td.open{
 background-color: darkseagreen;
 }
 td.selected{
+background-color: darkgray;
+}
+td.myselection{
 background-color: darkkhaki;
 }
 td.booked{

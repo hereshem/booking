@@ -47,14 +47,28 @@
 	<div><br/><br/>
 		<h2>Seats Arrangement</h2>
 		<table><tr>
-		<?php $index=0; foreach ($schedule['Seat'] as $seat): ?>
-		<?php echo ($index%4==2?"</tr><tr>":"")."<td class=\"".($seat['status']==1?"open":($seat['status']==2?"selected":"booked"))."\"><a href=\"?seat=".$seat['id']."\">".$seat['name']."</a></td>"; ?>
+		<?php $index=0; foreach ($schedule['Seat'] as $seat): 
+			$myclass="open";
+			if ($seat['status'] == 3){
+				$myclass="booked";
+			}
+			else if($seat['status'] == 2){
+				if(strpos($myseats,$seat['id'].',') !== false){
+					$myclass="myselection";
+				}
+				else{
+					$myclass="selected";
+				}
+			}
+		?>
+		<?php echo ($index%4==2?"</tr><tr>":"")."<td class=\"".$myclass."\"><a href=\"?seat=".$seat['id']."\">".$seat['name']."</a></td>"; ?>
 		<?php $index++; endforeach; ?></tr>
 		</table>
 		<div class="actions"><?php echo $this->Html->link(__('Book Now'), array('controller' => 'bookings', 'action' => 'add')); ?>
 		</div>
 	</div>
 	<?php endif; ?>
+	<?php print_r($myseats); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
