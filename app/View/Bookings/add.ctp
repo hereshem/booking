@@ -8,9 +8,9 @@
 		echo $this->Form->input('phone');
 		echo $this->Form->input('schedule_id');
 		echo $this->Form->input('user_id');
-		echo $this->Form->input('seatNames');
-		echo $this->Form->input('seatCount');
-		echo $this->Form->input('subTotal');
+		echo $this->Form->input('seatNames', array('class'=>'disabled'));
+		echo $this->Form->input('seatCount', array('class'=>'disabled'));
+		echo $this->Form->input('subTotal', array('class'=>'disabled'));
 		echo $this->Form->input('totalAmount');
 		echo $this->Form->input('file');
 	?>

@@ -53,7 +53,7 @@
 				$myclass="booked";
 			}
 			else if($seat['status'] == 2){
-				if(strpos($myseats,$seat['id'].',') !== false){
+				if(in_array($seat['id'],$myseats)){
 					$myclass="myselection";
 				}
 				else{
