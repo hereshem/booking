@@ -16,6 +16,11 @@
 			<?php echo h($templateseat['Templateseat']['photo']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Html'); ?></dt>
+		<dd>
+			<?php echo h($templateseat['Templateseat']['html']); ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('SeatCount'); ?></dt>
 		<dd>
 			<?php echo h($templateseat['Templateseat']['seatCount']); ?>

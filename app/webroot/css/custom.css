@@ -10,3 +10,10 @@ background-color: darkkhaki;
 td.booked{
 	background-color: palevioletred;
 }
+.disabled{
+	cursor: not-allowed;
+    filter: alpha(opacity=65);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    opacity: .65;
+}

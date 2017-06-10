@@ -5,6 +5,7 @@
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('photo');
+		echo $this->Form->input('html');
 		echo $this->Form->input('seatCount');
 		echo $this->Form->input('seatNames');
 		echo $this->Form->input('seatPrices');
