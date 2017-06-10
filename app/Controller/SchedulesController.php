@@ -74,38 +74,66 @@ class SchedulesController extends AppController {
 		if (!$this->Schedule->exists($id)) {
 			throw new NotFoundException(__('Invalid schedule'));
 		}
+		
+		$options = array('conditions' => array('Schedule.' . $this->Schedule->primaryKey => $id));
+		$schedule = $this->Schedule->find('first', $options);
+		$templateseat_id = $schedule['Vehicle']['templateseat_id'];
+		$this->loadModel('Templateseat');
+		$template = $this->Templateseat->find('first', array('conditions'=>array('Templateseat.id'=>$templateseat_id)));
+		$this->set(compact('schedule','template'));
+	}
+
+	public function selectSeat($id = null, $seat_name = null){
+		$this->autoRender = false;
+		$this->recursive = 0;
+		if (!$this->Schedule->exists($id)) {
+			throw new NotFoundException(__('Invalid schedule'));
+		}
+		$this->loadModel('Seat');
 		$myseats = explode(',',$this->Session->read('myseats'));
 		if(empty($myseats)){
 			array_push($myseats, $id);
 		}
-		if(isset($this->request->query['seat'])){
-			$this->loadModel('Seat');
-			$seat_id = $this->request->query['seat'];
-			$seat = $this->Seat->find('first', array('conditions' => array('Seat.id' => $seat_id)));
-			if($seat['Seat']['status'] == 1){
-				$seat['Seat']['status'] = 2;
-				// $myseats = ' '.$seat_id.','.$myseats;
-				array_push($myseats, $seat_id);
-				if($myseats[0] != $id){
-					$myseats[0] = $id;
+		if($seat_name != null){
+			$seat = $this->Seat->find('first', array('conditions' => array('Seat.name' => $seat_name, 'Seat.schedule_id'=>$id)));
+			if(count($seat)){
+				if($seat['Seat']['status'] == 1){
+					$seat['Seat']['status'] = 2;
+					array_push($myseats, $seat['Seat']['id']);
+					if($myseats[0] != $id){
+						$myseats[0] = $id;
+					}
+					$this->Seat->save($seat);
+					$this->Session->write('myseats',implode(',', $myseats));
 				}
-				$this->Seat->save($seat);
-				$this->Session->write('myseats',implode(',', $myseats));
-			}
-			else if($seat['Seat']['status'] == 2 && in_array($seat_id, $myseats)){
-				$seat['Seat']['status'] = 1;	
-				//$myseats = str_replace(' '.$seat_id.',', '', $myseats);
-				$myseats = array_diff($myseats, array($seat_id));
-				$this->Seat->save($seat);
-				$this->Session->write('myseats',implode(',', $myseats));
-			}
-			else{
-				$this->Flash->error(__('Invalid seat selection'));
+				else if($seat['Seat']['status'] == 2 && in_array($seat['Seat']['id'], $myseats)){
+					$seat['Seat']['status'] = 1;	
+					$myseats = array_diff($myseats, array($seat['Seat']['id']));
+					$this->Seat->save($seat);
+					$this->Session->write('myseats',implode(',', $myseats));
+				}
+				// else{
+				// 	$this->Flash->error(__('Invalid seat selection'));
+				// }
 			}
 		}
-		$options = array('conditions' => array('Schedule.' . $this->Schedule->primaryKey => $id));
-		$schedule = $this->Schedule->find('first', $options);
-		$this->set(compact('myseats', 'schedule'));
+		$seats = $this->Seat->find('all', array('fields'=>'Seat.id,Seat.name,Seat.status,Seat.price','conditions'=>array('Seat.schedule_id'=>$id)));
+		$selfseat = array();
+		$seatCount = 0; $price = 0; $selected = array();
+		for ($i=0; $i < count($seats); $i++) { 
+			if($seats[$i]['Seat']['status'] == 2 && in_array($seats[$i]['Seat']['id'],$myseats)){
+					$seats[$i]['Seat']['status'] = 5; $seatCount++;
+					$price += $seats[$i]['Seat']['price'];
+					$selected[] = $seats[$i]['Seat']['name'];
+			}	
+			$selfseat[] = $seats[$i]['Seat'];
+		}
+		$data['count'] = $seatCount;
+		$data['price'] = $price;
+		$data['selected'] = implode(', ',$selected);
+		$data['seats'] = $selfseat;
+		return json_encode($data);
+
 	}
 
 /**

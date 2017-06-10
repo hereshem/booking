@@ -7,8 +7,7 @@
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('photo'); ?></th>
 			<th><?php echo $this->Paginator->sort('seatCount'); ?></th>
-			<th><?php echo $this->Paginator->sort('seatNames'); ?></th>
-			<th><?php echo $this->Paginator->sort('seatPrices'); ?></th>
+			<th><?php echo $this->Paginator->sort('html'); ?></th>
 			<th><?php echo $this->Paginator->sort('published'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
@@ -22,8 +21,7 @@
 		<td><?php echo h($templateseat['Templateseat']['name']); ?>&nbsp;</td>
 		<td><?php echo h($templateseat['Templateseat']['photo']); ?>&nbsp;</td>
 		<td><?php echo h($templateseat['Templateseat']['seatCount']); ?>&nbsp;</td>
-		<td><?php echo h($templateseat['Templateseat']['seatNames']); ?>&nbsp;</td>
-		<td><?php echo h($templateseat['Templateseat']['seatPrices']); ?>&nbsp;</td>
+		<td><?php echo $templateseat['Templateseat']['html']; ?>&nbsp;</td>
 		<td><?php echo h($templateseat['Templateseat']['published']); ?>&nbsp;</td>
 		<td><?php echo h($templateseat['Templateseat']['created']); ?>&nbsp;</td>
 		<td><?php echo h($templateseat['Templateseat']['modified']); ?>&nbsp;</td>

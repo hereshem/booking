@@ -18,7 +18,9 @@
 	<?php foreach ($schedules as $schedule): ?>
 	<tr>
 		<td><?php echo h($schedule['Schedule']['id']); ?>&nbsp;</td>
-		<td><?php echo h($schedule['Schedule']['name']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($schedule['Schedule']['name'], array('controller' => 'schedules', 'action' => 'book', $schedule['Schedule']['id'])); ?>
+		<?php //echo h($schedule['Schedule']['name']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($schedule['Vehicle']['name'], array('controller' => 'vehicles', 'action' => 'view', $schedule['Vehicle']['id'])); ?>
 		</td>

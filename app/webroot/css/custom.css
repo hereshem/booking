@@ -17,3 +17,10 @@ td.booked{
     box-shadow: none;
     opacity: .65;
 }
+.seat{
+	text-align: center;
+}
+.seatplan{
+	float: right;
+	width: 50%;
+}
