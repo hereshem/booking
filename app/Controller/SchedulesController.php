@@ -22,6 +22,7 @@ class SchedulesController extends AppController {
  */
 	public function index() {
 		$this->Schedule->recursive = 0;
+		$this->Paginator->settings += array('order'=>'Schedule.id DESC');
 		$this->set('schedules', $this->Paginator->paginate());
 	}
 

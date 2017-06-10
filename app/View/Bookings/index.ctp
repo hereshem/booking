@@ -8,14 +8,10 @@
 			<th><?php echo $this->Paginator->sort('address'); ?></th>
 			<th><?php echo $this->Paginator->sort('phone'); ?></th>
 			<th><?php echo $this->Paginator->sort('schedule_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('seatNames'); ?></th>
 			<th><?php echo $this->Paginator->sort('seatCount'); ?></th>
-			<th><?php echo $this->Paginator->sort('subTotal'); ?></th>
 			<th><?php echo $this->Paginator->sort('totalAmount'); ?></th>
-			<th><?php echo $this->Paginator->sort('file'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -27,18 +23,12 @@
 		<td><?php echo h($booking['Booking']['address']); ?>&nbsp;</td>
 		<td><?php echo h($booking['Booking']['phone']); ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($booking['Schedule']['name'], array('controller' => 'schedules', 'action' => 'view', $booking['Schedule']['id'])); ?>
-		</td>
-		<td>
-			<?php echo $this->Html->link($booking['User']['id'], array('controller' => 'users', 'action' => 'view', $booking['User']['id'])); ?>
+			<?php echo $this->Html->link($booking['Schedule']['name'], array('controller' => 'schedules', 'action' => 'book', $booking['Schedule']['id'])); ?>
 		</td>
 		<td><?php echo h($booking['Booking']['seatNames']); ?>&nbsp;</td>
 		<td><?php echo h($booking['Booking']['seatCount']); ?>&nbsp;</td>
-		<td><?php echo h($booking['Booking']['subTotal']); ?>&nbsp;</td>
 		<td><?php echo h($booking['Booking']['totalAmount']); ?>&nbsp;</td>
-		<td><?php echo h($booking['Booking']['file']); ?>&nbsp;</td>
 		<td><?php echo h($booking['Booking']['created']); ?>&nbsp;</td>
-		<td><?php echo h($booking['Booking']['modified']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $booking['Booking']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $booking['Booking']['id'])); ?>
@@ -65,10 +55,11 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Booking'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Schedules'), array('controller' => 'schedules', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Schedule'), array('controller' => 'schedules', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Schedule'), array('controller' => 'schedules', 'action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Vehicles'), array('controller' => 'vehicles', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Vehicle'), array('controller' => 'vehicles', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Bookings'), array('controller' => 'bookings', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Template'), array('controller' => 'templateseats', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Travel'), array('controller' => 'travels', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

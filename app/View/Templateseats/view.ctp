@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Html'); ?></dt>
 		<dd>
-			<?php echo h($templateseat['Templateseat']['html']); ?>
+			<?php echo $templateseat['Templateseat']['html']; ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('SeatCount'); ?></dt>
@@ -60,8 +60,11 @@
 		<li><?php echo $this->Form->postLink(__('Delete Templateseat'), array('action' => 'delete', $templateseat['Templateseat']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $templateseat['Templateseat']['id']))); ?> </li>
 		<li><?php echo $this->Html->link(__('List Templateseats'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Templateseat'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Schedule'), array('controller' => 'schedules', 'action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Vehicles'), array('controller' => 'vehicles', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Vehicle'), array('controller' => 'vehicles', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Bookings'), array('controller' => 'bookings', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Travel'), array('controller' => 'travels', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">

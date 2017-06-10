@@ -1,26 +1,35 @@
 td.open{
-background-color: darkseagreen;
+	background-color: darkseagreen;
+	cursor: pointer;
 }
 td.selected{
-background-color: darkgray;
+	background-color: darkgray;
 }
 td.myselection{
-background-color: darkkhaki;
+	background-color: darkkhaki;
+	cursor: pointer;
 }
 td.booked{
 	background-color: palevioletred;
 }
 .disabled{
 	cursor: not-allowed;
-    filter: alpha(opacity=65);
+    filter: alpha(opacity=50);
     -webkit-box-shadow: none;
     box-shadow: none;
-    opacity: .65;
+    opacity: .50;
 }
 .seat{
 	text-align: center;
 }
 .seatplan{
 	float: right;
-	width: 50%;
+	width: 60%;
+}
+.description{
+	width:40%;
+	float:left;
+}
+dl {
+    width: 75%;
 }

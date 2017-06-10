@@ -8,9 +8,7 @@
 			<th><?php echo $this->Paginator->sort('vehicle_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('time'); ?></th>
 			<th><?php echo $this->Paginator->sort('route'); ?></th>
-			<th><?php echo $this->Paginator->sort('published'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
-			<th><?php echo $this->Paginator->sort('modified'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	</thead>
@@ -26,13 +24,11 @@
 		</td>
 		<td><?php echo h($schedule['Schedule']['time']); ?>&nbsp;</td>
 		<td><?php echo h($schedule['Schedule']['route']); ?>&nbsp;</td>
-		<td><?php echo h($schedule['Schedule']['published']); ?>&nbsp;</td>
 		<td><?php echo h($schedule['Schedule']['created']); ?>&nbsp;</td>
-		<td><?php echo h($schedule['Schedule']['modified']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $schedule['Schedule']['id'])); ?>
+			<?php //echo $this->Html->link(__('View'), array('action' => 'book', $schedule['Schedule']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $schedule['Schedule']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $schedule['Schedule']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $schedule['Schedule']['id']))); ?>
+			<?php //echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $schedule['Schedule']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $schedule['Schedule']['id']))); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -55,12 +51,11 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Schedule'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('New Schedule'), array('controller' => 'schedules', 'action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Vehicles'), array('controller' => 'vehicles', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Vehicle'), array('controller' => 'vehicles', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Bookings'), array('controller' => 'bookings', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Booking'), array('controller' => 'bookings', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Seats'), array('controller' => 'seats', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Seat'), array('controller' => 'seats', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Template'), array('controller' => 'templateseats', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Travel'), array('controller' => 'travels', 'action' => 'index')); ?> </li>
 	</ul>
 </div>

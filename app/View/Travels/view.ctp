@@ -45,8 +45,11 @@
 		<li><?php echo $this->Form->postLink(__('Delete Travel'), array('action' => 'delete', $travel['Travel']['id']), array('confirm' => __('Are you sure you want to delete # %s?', $travel['Travel']['id']))); ?> </li>
 		<li><?php echo $this->Html->link(__('List Travels'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Travel'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Schedule'), array('controller' => 'schedules', 'action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Vehicles'), array('controller' => 'vehicles', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Vehicle'), array('controller' => 'vehicles', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Bookings'), array('controller' => 'bookings', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Template'), array('controller' => 'templateseats', 'action' => 'index')); ?> </li>
 	</ul>
 </div>
 <div class="related">

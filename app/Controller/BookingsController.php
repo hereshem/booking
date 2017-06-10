@@ -22,6 +22,7 @@ class BookingsController extends AppController {
  */
 	public function index() {
 		$this->Booking->recursive = 0;
+		$this->Paginator->settings += array('order'=>'Booking.id DESC');
 		$this->set('bookings', $this->Paginator->paginate());
 	}
 

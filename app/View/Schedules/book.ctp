@@ -1,5 +1,5 @@
 <div class="schedules">
-	<div style="width:40%;float:left;">
+	<div class="description">
 		<h2><?php echo __('Schedule'); ?></h2>
 		<dl>
 			<dt><?php echo __('Id'); ?></dt>
@@ -67,15 +67,12 @@
 		<th><?php echo __('Name'); ?></th>
 		<th><?php echo __('Address'); ?></th>
 		<th><?php echo __('Phone'); ?></th>
-		<th><?php echo __('Schedule Id'); ?></th>
-		<th><?php echo __('User Id'); ?></th>
 		<th><?php echo __('SeatNames'); ?></th>
 		<th><?php echo __('SeatCount'); ?></th>
 		<th><?php echo __('SubTotal'); ?></th>
 		<th><?php echo __('TotalAmount'); ?></th>
 		<th><?php echo __('File'); ?></th>
 		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($schedule['Booking'] as $booking): ?>
@@ -84,15 +81,12 @@
 			<td><?php echo $booking['name']; ?></td>
 			<td><?php echo $booking['address']; ?></td>
 			<td><?php echo $booking['phone']; ?></td>
-			<td><?php echo $booking['schedule_id']; ?></td>
-			<td><?php echo $booking['user_id']; ?></td>
 			<td><?php echo $booking['seatNames']; ?></td>
 			<td><?php echo $booking['seatCount']; ?></td>
 			<td><?php echo $booking['subTotal']; ?></td>
 			<td><?php echo $booking['totalAmount']; ?></td>
 			<td><?php echo $booking['file']; ?></td>
 			<td><?php echo $booking['created']; ?></td>
-			<td><?php echo $booking['modified']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'bookings', 'action' => 'view', $booking['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'bookings', 'action' => 'edit', $booking['id'])); ?>
@@ -104,7 +98,5 @@
 	<?php endif; ?>
 
 </div>
-<script> var SC=<?php echo $schedule['Schedule']['id'];?>
-</script>
-
+<script>var SC=<?php echo $schedule['Schedule']['id'];?>;</script>
 <?php echo $this->Html->script(array('jquery.min','custom'));?>

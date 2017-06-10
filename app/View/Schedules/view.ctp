@@ -68,7 +68,7 @@
 		</div>
 	</div>
 	<?php endif; ?>
-	<?php print_r($myseats); ?>
+	<?php //print_r($myseats); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
