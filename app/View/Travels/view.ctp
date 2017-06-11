@@ -64,7 +64,7 @@
 		<th><?php echo __('Route'); ?></th>
 		<th><?php echo __('Travel Id'); ?></th>
 		<th><?php echo __('HasAC'); ?></th>
-		<th><?php echo __('SeatTemplate Id'); ?></th>
+		<th><?php echo __('TemplateSeat Id'); ?></th>
 		<th><?php echo __('Published'); ?></th>
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
@@ -79,7 +79,7 @@
 			<td><?php echo $vehicle['route']; ?></td>
 			<td><?php echo $vehicle['travel_id']; ?></td>
 			<td><?php echo $vehicle['hasAC']; ?></td>
-			<td><?php echo $vehicle['seatTemplate_id']; ?></td>
+			<td><?php echo $vehicle['templateseat_id']; ?></td>
 			<td><?php echo $vehicle['published']; ?></td>
 			<td><?php echo $vehicle['created']; ?></td>
 			<td><?php echo $vehicle['modified']; ?></td>

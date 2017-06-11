@@ -99,7 +99,7 @@
 			<td><?php echo $schedule['created']; ?></td>
 			<td><?php echo $schedule['modified']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'schedules', 'action' => 'view', $schedule['id'])); ?>
+				<?php echo $this->Html->link(__('View'), array('controller' => 'schedules', 'action' => 'book', $schedule['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'schedules', 'action' => 'edit', $schedule['id'])); ?>
 				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'schedules', 'action' => 'delete', $schedule['id']), array('confirm' => __('Are you sure you want to delete # %s?', $schedule['id']))); ?>
 			</td>

@@ -24,10 +24,16 @@ td.booked{
 }
 .seatplan{
 	float: right;
-	width: 60%;
+	width: 50%;
+}
+.seatplan table, td table, dd table{
+	width: inherit;
+}
+div.booknow{
+	width: initial;
 }
 .description{
-	width:40%;
+	width:50%;
 	float:left;
 }
 dl {
