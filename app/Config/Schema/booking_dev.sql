@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Jun 10, 2017 at 05:07 PM
+-- Generation Time: Jun 17, 2017 at 03:34 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.6.2
 
@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `bookings`
 --
 
-CREATE TABLE IF NOT EXISTS `bookings` (
+CREATE TABLE `bookings` (
 `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
   `address` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `file` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
 
 --
 -- Dumping data for table `bookings`
@@ -54,7 +54,13 @@ INSERT INTO `bookings` (`id`, `name`, `address`, `phone`, `schedule_id`, `user_i
 (16, 'Hem', 'Lalbandi', '984301243', 4, 1, 'D2,D3', 2, 1500, 1500, 'dfas', '2017-06-10 13:29:11', '2017-06-10 13:29:11'),
 (17, 'RamHari', 'Kapan', '897435', 1, 1, '6', 1, 700, 700, 'gvsdf', '2017-06-10 14:59:00', '2017-06-10 14:59:00'),
 (18, 'hem', 'lal', '97835', 5, 1, '6,7', 2, 1000, 1000, 'asdg', '2017-06-10 15:40:01', '2017-06-10 15:40:01'),
-(19, 'Ashok', 'ktm', '98234t2', 3, 1, '11,12,13,14', 4, 2000, 2000, 'zxcv', '2017-06-10 15:41:03', '2017-06-10 15:41:03');
+(19, 'Ashok', 'ktm', '98234t2', 3, 1, '11,12,13,14', 4, 2000, 2000, 'zxcv', '2017-06-10 15:41:03', '2017-06-10 15:41:03'),
+(20, 'Megha', 'Lalbandi', '98432623', 6, 1, '1', 1, 800, 800, 'dfgs', '2017-06-10 18:24:10', '2017-06-10 18:24:10'),
+(21, 'Pravakar', 'ktm', 'sadfa', 6, 1, '4,5', 2, 1400, 1400, 'asdg', '2017-06-10 18:26:38', '2017-06-10 18:26:38'),
+(22, 'Ramana', 'ktm', '98235', 7, 1, 'F9,F10', 2, 640, 640, 'asd', '2017-06-10 20:45:12', '2017-06-10 20:45:12'),
+(23, 'Yubaraj', 'Kathmandu', '9823523523', 7, 1, 'E7,E8,E9,E10,E11,E12', 6, 1920, 1920, '', '2017-06-10 22:08:25', '2017-06-10 22:08:25'),
+(24, 'Mark', 'Swz', '644844', 8, 1, '8,9,10', 3, 1500, 1500, '', '2017-06-11 08:49:26', '2017-06-11 08:49:26'),
+(25, 'Roshan', 'Ktm', '98w34523', 8, 1, 'A,B', 2, 1000, 1000, '', '2017-06-11 11:42:52', '2017-06-11 11:42:52');
 
 -- --------------------------------------------------------
 
@@ -62,7 +68,7 @@ INSERT INTO `bookings` (`id`, `name`, `address`, `phone`, `schedule_id`, `user_i
 -- Table structure for table `schedules`
 --
 
-CREATE TABLE IF NOT EXISTS `schedules` (
+CREATE TABLE `schedules` (
 `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE ucs2_unicode_ci DEFAULT NULL,
   `vehicle_id` int(11) NOT NULL,
@@ -71,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `schedules` (
   `published` tinyint(4) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
 
 --
 -- Dumping data for table `schedules`
@@ -82,7 +88,10 @@ INSERT INTO `schedules` (`id`, `name`, `vehicle_id`, `time`, `route`, `published
 (2, '8th June Beluka', 1, '2017-06-08 14:30:00', 'lalbandi hetauda ghumdai ktm', 1, '2017-06-07 17:20:26', '2017-06-07 17:20:26'),
 (3, '10 June morning', 2, '2017-06-10 07:00:00', 'ktm pok', 1, '2017-06-09 13:59:24', '2017-06-10 15:37:20'),
 (4, 'Saturday thulo bus', 3, '2017-06-10 08:00:00', 'picnic', 1, '2017-06-09 19:14:47', '2017-06-09 19:14:47'),
-(5, 'Sunday 11 morning Winger', 4, '2017-06-11 20:00:00', 'naranghat', 1, '2017-06-10 15:39:10', '2017-06-10 15:39:10');
+(5, 'Sunday 11 morning Winger', 4, '2017-06-11 20:00:00', 'naranghat', 1, '2017-06-10 15:39:10', '2017-06-10 15:39:10'),
+(6, 'Sunday bihana 7 bajey tata sumo', 1, '2017-06-11 07:00:00', 'ktm kulekhani lalbandi', 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(7, 'Bahubali 2 show at QFX', 5, '2017-06-10 08:15:00', 'QFX Civil Mall', 1, '2017-06-10 20:09:26', '2017-06-10 20:09:26'),
+(8, 'Sunday Pokhara Hyace', 2, '2017-06-11 14:00:00', 'Ktm Pokhara', 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46');
 
 -- --------------------------------------------------------
 
@@ -90,7 +99,7 @@ INSERT INTO `schedules` (`id`, `name`, `vehicle_id`, `time`, `route`, `published
 -- Table structure for table `seats`
 --
 
-CREATE TABLE IF NOT EXISTS `seats` (
+CREATE TABLE `seats` (
 `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
   `schedule_id` int(11) NOT NULL,
@@ -99,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `seats` (
   `published` tinyint(4) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=342 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
 
 --
 -- Dumping data for table `seats`
@@ -201,7 +210,164 @@ INSERT INTO `seats` (`id`, `name`, `schedule_id`, `status`, `price`, `published`
 (181, '8', 5, 1, 500, 1, '2017-06-10 15:39:10', '2017-06-10 15:39:10'),
 (182, '9', 5, 1, 500, 1, '2017-06-10 15:39:10', '2017-06-10 15:39:10'),
 (183, '10', 5, 1, 500, 1, '2017-06-10 15:39:10', '2017-06-10 15:39:10'),
-(184, '11', 5, 1, 500, 1, '2017-06-10 15:39:10', '2017-06-10 15:39:10');
+(184, '11', 5, 1, 500, 1, '2017-06-10 15:39:10', '2017-06-10 15:39:10'),
+(185, '1', 6, 3, 800, 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(186, '2', 6, 1, 700, 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(187, '3', 6, 1, 700, 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(188, '4', 6, 3, 700, 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(189, '5', 6, 3, 700, 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(190, '6', 6, 1, 650, 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(191, '7', 6, 1, 650, 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(192, '8', 6, 1, 650, 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(193, '9', 6, 1, 650, 1, '2017-06-10 18:23:18', '2017-06-10 18:23:18'),
+(194, 'A1', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(195, 'A2', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(196, 'A3', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(197, 'A4', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(198, 'A5', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(199, 'A6', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(200, 'A7', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(201, 'A8', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(202, 'A9', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(203, 'A10', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(204, 'A11', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(205, 'A12', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(206, 'A13', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(207, 'A14', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(208, 'A15', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(209, 'A16', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(210, 'A17', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(211, 'A18', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(212, 'B1', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(213, 'B2', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(214, 'B3', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(215, 'B4', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(216, 'B5', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(217, 'B6', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(218, 'B7', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(219, 'B8', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(220, 'B9', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(221, 'B10', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(222, 'B11', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(223, 'B12', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(224, 'B13', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(225, 'B14', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(226, 'B15', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(227, 'B16', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(228, 'B17', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(229, 'B18', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(230, 'C1', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(231, 'C2', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(232, 'C3', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(233, 'C4', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(234, 'C5', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(235, 'C6', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(236, 'C7', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(237, 'C8', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(238, 'C9', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(239, 'C10', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(240, 'C11', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(241, 'C12', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(242, 'C13', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(243, 'C14', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(244, 'C15', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(245, 'C16', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(246, 'C17', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(247, 'C18', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(248, 'D1', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(249, 'D2', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(250, 'D3', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(251, 'D4', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(252, 'D5', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(253, 'D6', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(254, 'D7', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(255, 'D8', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(256, 'D9', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(257, 'D10', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(258, 'D11', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(259, 'D12', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(260, 'D13', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(261, 'D14', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(262, 'D15', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(263, 'D16', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(264, 'D17', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(265, 'D18', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(266, 'E1', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(267, 'E2', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(268, 'E3', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(269, 'E4', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(270, 'E5', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(271, 'E6', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(272, 'E7', 7, 3, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(273, 'E8', 7, 3, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(274, 'E9', 7, 3, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(275, 'E10', 7, 3, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(276, 'E11', 7, 3, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(277, 'E12', 7, 3, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(278, 'E13', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(279, 'E14', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(280, 'E15', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(281, 'E16', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(282, 'E17', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(283, 'E18', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(284, 'F1', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(285, 'F2', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(286, 'F3', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(287, 'F4', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(288, 'F5', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(289, 'F6', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(290, 'F7', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(291, 'F8', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(292, 'F9', 7, 3, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(293, 'F10', 7, 3, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(294, 'F11', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(295, 'F12', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(296, 'F13', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(297, 'F14', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(298, 'F15', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(299, 'F16', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(300, 'F17', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(301, 'F18', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(302, 'G1', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(303, 'G2', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(304, 'G3', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(305, 'G4', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(306, 'G5', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(307, 'G6', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(308, 'H1', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(309, 'H2', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(310, 'H3', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(311, 'H4', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(312, 'H5', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(313, 'H6', 7, 1, 320, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(314, 'I1', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(315, 'I2', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(316, 'I3', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(317, 'I4', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(318, 'I5', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(319, 'I6', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(320, 'J1', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(321, 'J2', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(322, 'J3', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(323, 'J4', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(324, 'J5', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(325, 'J6', 7, 1, 400, 1, '2017-06-10 20:09:27', '2017-06-10 20:09:27'),
+(326, 'A', 8, 3, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(327, 'B', 8, 3, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(328, '1', 8, 2, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(329, '2', 8, 2, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(330, '3', 8, 1, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(331, '4', 8, 2, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(332, '5', 8, 1, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(333, '6', 8, 1, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(334, '7', 8, 1, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(335, '8', 8, 3, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(336, '9', 8, 3, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(337, '10', 8, 3, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(338, '11', 8, 1, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(339, '12', 8, 1, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(340, '13', 8, 1, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46'),
+(341, '14', 8, 1, 500, 1, '2017-06-11 08:46:46', '2017-06-11 08:46:46');
 
 -- --------------------------------------------------------
 
@@ -209,7 +375,7 @@ INSERT INTO `seats` (`id`, `name`, `schedule_id`, `status`, `price`, `published`
 -- Table structure for table `templateseats`
 --
 
-CREATE TABLE IF NOT EXISTS `templateseats` (
+CREATE TABLE `templateseats` (
 `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE ucs2_unicode_ci DEFAULT NULL,
   `photo` varchar(255) COLLATE ucs2_unicode_ci DEFAULT NULL,
@@ -220,7 +386,7 @@ CREATE TABLE IF NOT EXISTS `templateseats` (
   `published` tinyint(4) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
 
 --
 -- Dumping data for table `templateseats`
@@ -230,7 +396,8 @@ INSERT INTO `templateseats` (`id`, `name`, `photo`, `html`, `seatCount`, `seatNa
 (1, 'TataSumo', 'tatasumo', '<table>\r\n<tbody>\r\n<tr>\r\n	<td class="seat">1</td><td></td><td></td><td></td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">2</td><td class="seat">3</td><td class="seat">4</td><td class="seat">5</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">6</td><td class="seat">7</td><td class="seat">8</td><td class="seat">9</td>\r\n</tr>\r\n</tbody>\r\n</table>', 9, '1,2,3,4,5,6,7,8,9', '800,700,700,700,700,650,650,650,650', 1, '2017-06-07 14:33:03', '2017-06-09 19:12:03'),
 (2, 'WingerTemplate', '', '<table>\r\n<tbody>\r\n<tr>\r\n	<td class="seat">A</td><td class="seat">B</td><td></td><td></td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">1</td><td class="seat">2</td><td class="seat">3</td><td class="seat">4</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">5</td><td></td><td class="seat">6</td><td class="seat">7</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">8</td><td class="seat">9</td><td class="seat">10</td><td class="seat">11</td>\r\n</tr>\r\n</tbody>\r\n</table>', 13, 'A,B,1,2,3,4,5,6,7,8,9,10,11', '500,500,500,500,500,500,500,500,500,500,500,500,500', 1, '2017-06-09 13:52:22', '2017-06-10 14:52:06'),
 (3, 'BusTemplate', 'bus photo', '<table>\r\n<tbody>\r\n<tr>\r\n	<td class="seat">C1</td><td class="seat">C2</td><td></td><td></td><td></td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">C3</td><td class="seat">C4</td><td></td><td></td><td></td>\r\n</tr>\r\n<tr>\r\n	<td></td><td></td><td></td><td class="seat">B1</td><td class="seat">B2</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">A1</td><td class="seat">A2</td><td></td><td class="seat">B3</td><td class="seat">B4</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">A3</td><td class="seat">A4</td><td></td><td class="seat">B5</td><td class="seat">B6</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">A5</td><td class="seat">A6</td><td></td><td class="seat">B7</td><td class="seat">B8</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">A7</td><td class="seat">A8</td><td></td><td class="seat">B9</td><td class="seat">B10</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">A9</td><td class="seat">A10</td><td></td><td class="seat">B11</td><td class="seat">B12</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">A11</td><td class="seat">A12</td><td></td><td class="seat">B13</td><td class="seat">B14</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">A13</td><td class="seat">A14</td><td></td><td class="seat">B15</td><td class="seat">B16</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">A15</td><td class="seat">A16</td><td></td><td class="seat">B17</td><td class="seat">B18</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">A17</td><td class="seat">A18</td><td></td><td class="seat">B19</td><td class="seat">B20</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">D1</td><td class="seat">D2</td><td class="seat">D3</td><td class="seat">D4</td><td class="seat">D5</td>\r\n</tr>\r\n</tbody>\r\n</table>', 47, 'C1,C2,C3,C4,B1,B2,A1,A2,B3,B4,A3,A4,B5,B6,A5,A6,B7,B8,A7,A8,B9,B10,A9,A10,B11,B12,A11,A12,B13,B14,A13,A14,B15,B16,A15,A16,B17,B18,A17,A18,B19,B20,D1,D2,D3,D4,D5', '750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750,750', 1, '2017-06-09 19:00:38', '2017-06-09 19:00:38'),
-(4, 'HyaceTemplate', '', '<table>\r\n<tbody>\r\n<tr>\r\n	<td class="seat">A</td><td class="seat">B</td><td></td><td></td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">1</td><td class="seat">2</td><td class="seat">3</td><td class="seat">4</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">5</td><td></td><td class="seat">6</td><td class="seat">7</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">8</td><td></td><td class="seat">9</td><td class="seat">10</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">11</td><td class="seat">12</td><td class="seat">13</td><td class="seat">14</td>\r\n</tr>\r\n</tbody>\r\n</table>', 16, 'A,B,1,2,3,4,5,6,7,8,9,10,11,12,13,14', '500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500', 1, '2017-06-10 14:51:36', '2017-06-10 15:36:49');
+(4, 'HyaceTemplate', '', '<table>\r\n<tbody>\r\n<tr>\r\n	<td class="seat">A</td><td class="seat">B</td><td></td><td></td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">1</td><td class="seat">2</td><td class="seat">3</td><td class="seat">4</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">5</td><td></td><td class="seat">6</td><td class="seat">7</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">8</td><td></td><td class="seat">9</td><td class="seat">10</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">11</td><td class="seat">12</td><td class="seat">13</td><td class="seat">14</td>\r\n</tr>\r\n</tbody>\r\n</table>', 16, 'A,B,1,2,3,4,5,6,7,8,9,10,11,12,13,14', '500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500,500', 1, '2017-06-10 14:51:36', '2017-06-10 15:36:49'),
+(5, 'QFX Hall Template', '', '<table>\r\n<tbody>\r\n<tr>\r\n	<td class="seat">A1</td><td class="seat">A2</td><td class="seat">A3</td><td class="seat">A4</td><td class="seat">A5</td><td class="seat">A6</td><td>&nbsp;</td><td class="seat">A7</td><td class="seat">A8</td><td class="seat">A9</td><td class="seat">A10</td><td class="seat">A11</td><td class="seat">A12</td><td>&nbsp;</td><td class="seat">A13</td><td class="seat">A14</td><td class="seat">A15</td><td class="seat">A16</td><td class="seat">A17</td><td class="seat">A18</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">B1</td><td class="seat">B2</td><td class="seat">B3</td><td class="seat">B4</td><td class="seat">B5</td><td class="seat">B6</td><td></td><td class="seat">B7</td><td class="seat">B8</td><td class="seat">B9</td><td class="seat">B10</td><td class="seat">B11</td><td class="seat">B12</td><td></td><td class="seat">B13</td><td class="seat">B14</td><td class="seat">B15</td><td class="seat">B16</td><td class="seat">B17</td><td class="seat">B18</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">C1</td><td class="seat">C2</td><td class="seat">C3</td><td class="seat">C4</td><td class="seat">C5</td><td class="seat">C6</td><td></td><td class="seat">C7</td><td class="seat">C8</td><td class="seat">C9</td><td class="seat">C10</td><td class="seat">C11</td><td class="seat">C12</td><td></td><td class="seat">C13</td><td class="seat">C14</td><td class="seat">C15</td><td class="seat">C16</td><td class="seat">C17</td><td class="seat">C18</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">D1</td><td class="seat">D2</td><td class="seat">D3</td><td class="seat">D4</td><td class="seat">D5</td><td class="seat">D6</td><td></td><td class="seat">D7</td><td class="seat">D8</td><td class="seat">D9</td><td class="seat">D10</td><td class="seat">D11</td><td class="seat">D12</td><td></td><td class="seat">D13</td><td class="seat">D14</td><td class="seat">D15</td><td class="seat">D16</td><td class="seat">D17</td><td class="seat">D18</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">E1</td><td class="seat">E2</td><td class="seat">E3</td><td class="seat">E4</td><td class="seat">E5</td><td class="seat">E6</td><td></td><td class="seat">E7</td><td class="seat">E8</td><td class="seat">E9</td><td class="seat">E10</td><td class="seat">E11</td><td class="seat">E12</td><td></td><td class="seat">E13</td><td class="seat">E14</td><td class="seat">E15</td><td class="seat">E16</td><td class="seat">E17</td><td class="seat">E18</td>\r\n</tr>\r\n<tr>\r\n	<td class="seat">F1</td><td class="seat">F2</td><td class="seat">F3</td><td class="seat">F4</td><td class="seat">F5</td><td class="seat">F6</td><td></td><td class="seat">F7</td><td class="seat">F8</td><td class="seat">F9</td><td class="seat">F10</td><td class="seat">F11</td><td class="seat">F12</td><td></td><td class="seat">F13</td><td class="seat">F14</td><td class="seat">F15</td><td class="seat">F16</td><td class="seat">F17</td><td class="seat">F18</td>\r\n</tr>\r\n<tr>\r\n	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="seat">G1</td><td class="seat">G2</td><td class="seat">G3</td><td class="seat">G4</td><td class="seat">G5</td><td class="seat">G6</td><td></td><td></td><td></td><td></td><td></td><td></td>\r\n</tr>\r\n<tr>\r\n	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="seat">H1</td><td class="seat">H2</td><td class="seat">H3</td><td class="seat">H4</td><td class="seat">H5</td><td class="seat">H6</td><td></td><td></td><td></td><td></td><td></td><td></td>\r\n</tr>\r\n<tr>\r\n	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="seat">I1</td><td class="seat">I2</td><td class="seat">I3</td><td class="seat">I4</td><td class="seat">I5</td><td class="seat">I6</td><td></td><td></td><td></td><td></td><td></td><td></td>\r\n</tr>\r\n<tr>\r\n	<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="seat">J1</td><td class="seat">J2</td><td class="seat">J3</td><td class="seat">J4</td><td class="seat">J5</td><td class="seat">J6</td><td></td><td></td><td></td><td></td><td></td><td></td>\r\n</tr>\r\n</tbody>\r\n</table>', 132, 'A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18,B1,B2,B3,B4,B5,B6,B7,B8,B9,B10,B11,B12,B13,B14,B15,B16,B17,B18,C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12,C13,C14,C15,C16,C17,C18,D1,D2,D3,D4,D5,D6,D7,D8,D9,D10,D11,D12,D13,D14,D15,D16,D17,D18,E1,E2,E3,E4,E5,E6,E7,E8,E9,E10,E11,E12,E13,E14,E15,E16,E17,E18,F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12,F13,F14,F15,F16,F17,F18,G1,G2,G3,G4,G5,G6,H1,H2,H3,H4,H5,H6,I1,I2,I3,I4,I5,I6,J1,J2,J3,J4,J5,J6', '320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,320,400,400,400,400,400,400,400,400,400,400,400,400', 1, '2017-06-10 20:06:16', '2017-06-10 20:06:16');
 
 -- --------------------------------------------------------
 
@@ -238,7 +405,7 @@ INSERT INTO `templateseats` (`id`, `name`, `photo`, `html`, `seatCount`, `seatNa
 -- Table structure for table `travels`
 --
 
-CREATE TABLE IF NOT EXISTS `travels` (
+CREATE TABLE `travels` (
 `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
   `description` text COLLATE ucs2_unicode_ci,
@@ -246,14 +413,15 @@ CREATE TABLE IF NOT EXISTS `travels` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `published` tinyint(4) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
 
 --
 -- Dumping data for table `travels`
 --
 
 INSERT INTO `travels` (`id`, `name`, `description`, `address`, `created`, `modified`, `published`) VALUES
-(1, 'Buddha Bhumi Yatayat', 'Buddha bhumi yatayat running from sarlahi to Kathmandu', 'Lalbandi, Sarlahi', '2017-06-07 14:24:56', '2017-06-07 14:24:56', 1);
+(1, 'Buddha Bhumi Yatayat', 'Buddha bhumi yatayat running from sarlahi to Kathmandu', 'Lalbandi, Sarlahi', '2017-06-07 14:24:56', '2017-06-07 14:24:56', 1),
+(2, 'Koshi Delux', 'Koshi Delux', 'Koshi Delux', '2017-06-11 11:49:18', '2017-06-11 11:49:18', 1);
 
 -- --------------------------------------------------------
 
@@ -261,7 +429,7 @@ INSERT INTO `travels` (`id`, `name`, `description`, `address`, `created`, `modif
 -- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
+CREATE TABLE `users` (
 `id` int(11) NOT NULL,
   `fname` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
   `lname` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
@@ -270,16 +438,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
   `status` int(11) NOT NULL,
+  `role` varchar(31) COLLATE ucs2_unicode_ci NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `phone`, `email`, `password`, `status`, `created`, `modified`) VALUES
-(1, 'Hem', 'Shrestha', 'Lalbandi\r\nSarlahi', '9843096958', 'hereshem@gmail.com', '123456', 1, '2017-06-07 14:23:35', '2017-06-07 14:23:35');
+INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `phone`, `email`, `password`, `status`, `role`, `created`, `modified`) VALUES
+(1, 'Hem', 'Shrestha', 'Lalbandi\r\nSarlahi', '9843096958', 'hereshem@gmail.com', '319ed8024f8db066dab7fbc66246b8f9cc0e7270', 1, 'admin', '2017-06-07 14:23:35', '2017-06-07 14:23:35'),
+(2, 'Megha', 'Shrestha', 'Lalbandi\r\nSarlahi', '9869059562', 'meghasthas@gmail.com', '319ed8024f8db066dab7fbc66246b8f9cc0e7270', 1, 'admin', '2017-06-17 14:45:47', '2017-06-17 14:45:47'),
+(3, 'Admin', 'Admin', 'Lalbandi\r\nSarlahi', '9843096958', 'admin@admin.com', '319ed8024f8db066dab7fbc66246b8f9cc0e7270', 1, 'admin', '2017-06-17 15:33:44', '2017-06-17 15:33:44');
 
 -- --------------------------------------------------------
 
@@ -287,7 +458,7 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `address`, `phone`, `email`, `passw
 -- Table structure for table `vehicles`
 --
 
-CREATE TABLE IF NOT EXISTS `vehicles` (
+CREATE TABLE `vehicles` (
 `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE ucs2_unicode_ci NOT NULL,
   `description` text COLLATE ucs2_unicode_ci NOT NULL,
@@ -299,17 +470,19 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
   `published` tinyint(4) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=ucs2 COLLATE=ucs2_unicode_ci;
 
 --
 -- Dumping data for table `vehicles`
 --
 
 INSERT INTO `vehicles` (`id`, `name`, `description`, `plateNumber`, `route`, `travel_id`, `hasAC`, `templateseat_id`, `published`, `created`, `modified`) VALUES
-(1, 'Tata Sumo Buddha Bhumi', 'Lalbandi - Kathmandu route', 'ba 6 pa 2630', 'lalbandi bardibas sindhuli kathmandu', 1, 0, 1, 1, '2017-06-07 14:34:47', '2017-06-07 14:34:47'),
+(1, 'Tata Sumo', 'Lalbandi - Kathmandu route', 'ba 6 pa 2630', 'lalbandi bardibas sindhuli kathmandu', 1, 0, 1, 1, '2017-06-07 14:34:47', '2017-06-10 20:40:26'),
 (2, 'Hyace', 'Hyace', 'na 2 kha 34634', 'ktm pok', 1, 1, 4, 1, '2017-06-09 13:58:25', '2017-06-10 15:34:32'),
-(3, 'School Bus', 'new bus', 'ba 2 kha 2135423', 'alksdgao kasdjgka', 1, 1, 3, 1, '2017-06-09 19:13:38', '2017-06-09 19:13:38'),
-(4, 'Winger', 'Winger', 'na 3 pa 234', 'naranghat', 1, 0, 2, 1, '2017-06-10 15:38:16', '2017-06-10 15:38:16');
+(3, 'Sajha Bus', 'new bus', 'ba 2 kha 2135423', 'alksdgao kasdjgka', 1, 1, 3, 1, '2017-06-09 19:13:38', '2017-06-10 20:40:54'),
+(4, 'Winger', 'Winger', 'na 3 pa 234', 'naranghat', 1, 0, 2, 1, '2017-06-10 15:38:16', '2017-06-10 15:38:16'),
+(5, 'QFX Hall', 'Cinema Hall template testing', 'Pan 1234567890', 'Bahubali', 1, 1, 5, 1, '2017-06-10 20:07:42', '2017-06-10 20:07:42'),
+(6, 'Koshi Bus', 'Koshi Bus', 'na 2 pa 2354', 'dharan itahari kathmandu', 2, 1, 3, 1, '2017-06-11 11:50:47', '2017-06-11 11:50:47');
 
 --
 -- Indexes for dumped tables
@@ -365,37 +538,37 @@ ALTER TABLE `vehicles`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `schedules`
 --
 ALTER TABLE `schedules`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `seats`
 --
 ALTER TABLE `seats`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=185;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=342;
 --
 -- AUTO_INCREMENT for table `templateseats`
 --
 ALTER TABLE `templateseats`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `travels`
 --
 ALTER TABLE `travels`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `vehicles`
 --
 ALTER TABLE `vehicles`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
