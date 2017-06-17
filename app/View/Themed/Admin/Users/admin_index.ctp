@@ -9,7 +9,6 @@
 			<th><?php echo $this->Paginator->sort('address'); ?></th>
 			<th><?php echo $this->Paginator->sort('phone'); ?></th>
 			<th><?php echo $this->Paginator->sort('email'); ?></th>
-			<th><?php echo $this->Paginator->sort('password'); ?></th>
 			<th><?php echo $this->Paginator->sort('role'); ?></th>
 			<th><?php echo $this->Paginator->sort('status'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
@@ -26,7 +25,6 @@
 		<td><?php echo h($user['User']['address']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['phone']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['role']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['status']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['created']); ?>&nbsp;</td>
@@ -57,8 +55,7 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
+		<li><a href="/">Home</a></li>
 		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Bookings'), array('controller' => 'bookings', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Booking'), array('controller' => 'bookings', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

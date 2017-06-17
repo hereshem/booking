@@ -13,7 +13,7 @@ class TravelsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	// public $components = array('Paginator');
 
 /**
  * index method

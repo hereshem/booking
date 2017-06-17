@@ -37,6 +37,17 @@ class PagesController extends AppController {
  */
 	public $uses = array();
 
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow(array('display'));
+	}
+
+	public function admin_index() {
+		$this->loadModel('Schedule');
+		$this->Schedule->recursive = 0;
+		// $this->Paginator->settings += array('order'=>'Schedule.id DESC');
+		$this->set('schedules', $this->Paginator->paginate());
+	}
 /**
  * Displays a view
  *

@@ -39,6 +39,7 @@ $cakeDescription = __d('cake_dev', 'Ticket Booking System');
 	<div id="container">
 		<div id="header">
 			<h1><?php echo $this->Html->link($cakeDescription, '/'); ?></h1>
+			<p><?php //echo $this->Auth->user('Fname')." ". $this->Html->link('Logout', '/logout'); ?><p>
 		</div>
 		<div id="content">
 
