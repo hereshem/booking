@@ -137,7 +137,7 @@ class AppController extends Controller {
 		if (isset($this->request->params['admin'])){
 			if($this->request->params['action']=='admin_login' || $this->request->params['action']=='admin_forgot_password'){
 				$this->theme = 'Admin';
-				$this->layout = 'login';
+				//$this->layout = 'login';
 			}else{
 				if($this->Auth->user())
 				$this->theme = 'Admin';
