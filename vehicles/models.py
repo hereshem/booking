@@ -39,7 +39,7 @@ class Vehicle(models.Model):
     has_ac = models.BooleanField(default=True)
     photo = models.ImageField(upload_to='vehicle', blank=True)
     seat_template = models.ForeignKey(SeatTemplate, on_delete=models.DO_NOTHING)
-    travel = models.ForeignKey(Travel, on_delete=models.CASCADE)
+    travel = models.ForeignKey(Travel, on_delete=models.DO_NOTHING)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
@@ -63,26 +63,42 @@ class Schedule(models.Model):
 
 class Seat(models.Model):
     name = models.CharField(max_length=250)
-    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
-    status = models.CharField(max_length=10, choices=[["initial","initial"],["selected","selected"],["booked","booked"],["paid","paid"],["cancelled","cancelled"]])
+    schedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
+    status = models.CharField(max_length=1, default="I", choices=[["I","Initial"],["S","Selected"],["B","Booked"],["P","Paid"],["C","Cancelled"]])
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
+
+
+class BookingUser(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    address = models.CharField(max_length=250, blank=True)
+    phone = models.CharField(max_length=250, blank=True)
+    phone_verified = models.BooleanField(default=False)
+    email_verified = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.username
 
 
 class Booking(models.Model):
-    name = models.CharField(max_length=250)
-    address = models.CharField(max_length=250, blank=True)
-    phone = models.CharField(max_length=250, blank=True)
-    schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    user = models.ForeignKey(BookingUser, on_delete=models.DO_NOTHING, blank=True)
+    remarks = models.TextField()
+    schedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
+    seat_names = models.CharField(max_length=250, blank=True)
+    seat_count = models.IntegerField(default=1)
+    sub_total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    discount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    ticket = models.CharField(max_length=250, blank=True)
+    status = models.CharField(max_length=1, default="B", choices=[["B","Booked"],["P","Paid"],["C","Cancelled"]])
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.name
+        return str(self.id) + " - " + (self.user.user.username if self.user else self.remarks)
