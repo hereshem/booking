@@ -87,7 +87,7 @@ class BookingUser(models.Model):
 
 class Booking(models.Model):
     user = models.ForeignKey(BookingUser, on_delete=models.DO_NOTHING, blank=True)
-    remarks = models.TextField()
+    remarks = models.TextField(blank=True)
     schedule = models.ForeignKey(Schedule, on_delete=models.DO_NOTHING)
     seat_names = models.CharField(max_length=250, blank=True)
     seat_count = models.IntegerField(default=1)
