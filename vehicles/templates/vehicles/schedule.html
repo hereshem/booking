@@ -1,0 +1,6 @@
+{#{% extends "vehicles/index.html" %}#}
+<h1>Schedules</h1>
+
+{%  for item in items %}
+    <p><a href="{% url "vehicles:schedule_id" item.id %}" >{{ item.name }} - {{ item.vehicle.name }} - {{ item.time }}</a> </p>
+{% endfor %}

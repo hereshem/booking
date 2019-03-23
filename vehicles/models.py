@@ -47,6 +47,9 @@ class Vehicle(models.Model):
     def __str__(self):
         return self.name
 
+class Station:
+    pass
+
 
 class Schedule(models.Model):
     name = models.CharField(max_length=250)

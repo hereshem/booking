@@ -1,0 +1,8 @@
+
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" class="btn btn-success text-center w-100 mb-3" value="Submit">
+{#                        <a href="{% url "shop:signup" %}" class="small">Sign Up</a>#}
+{#                        <a href="/" class="float-right small">Home</a>#}
+                    </form>
