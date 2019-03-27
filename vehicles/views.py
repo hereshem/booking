@@ -33,7 +33,6 @@ def add_schedule(req):
     else:
         form = ScheduleForm()
 
-    # schedule = Schedule.objects.get(id=id)
     return render(req, "vehicles/add_schedule.html", {"form": form})
 
 
