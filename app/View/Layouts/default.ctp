@@ -56,7 +56,6 @@ $cakeDescription = __d('cake_dev', 'Ticket Booking System');
 			// 	);
 			?>
 			<p>
-				<?php echo 'Powered By '.$this->Html->link('Mantra Ideas Pvt. Ltd.','http://www.mantraideas.com'); ?>
 			</p>
 		</div>
 	</div>
